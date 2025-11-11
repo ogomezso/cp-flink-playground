@@ -45,4 +45,4 @@ helm upgrade --install cmf --version "~2.1.0" confluentinc/confluent-manager-for
 kubectl get pods -n confluent
 ```
 
-5. Follow instructions in [CMF Deployment](cmf/README.md) to complete the installation and setup your first Flink Application
+5. Follow instructions in [CPF Deployment](flink/README.md) to complete the installation and setup your first Flink Application
