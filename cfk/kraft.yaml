@@ -1,0 +1,22 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: KRaftController
+metadata:
+  name: kraftcontroller
+  namespace: confluent
+spec:
+  license:
+    globalLicense: true
+  dataVolumeCapacity: 10G
+  storageClass:
+    name: cflt-sc
+  image:
+    application: confluentinc/cp-server:8.0.0
+    init: confluentinc/confluent-init-container:3.1.0
+  replicas: 3
+  dependencies:
+    metricsClient:
+      url: http://controlcenter-ng.confluent.svc.cluster.local:9090
+      authentication:
+        type: basic
+        basic:
+          secretRef: prometheus-client-creds
